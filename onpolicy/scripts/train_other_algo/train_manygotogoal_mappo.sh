@@ -1,5 +1,11 @@
 #!/bin/sh
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+REPO_ROOT="$(cd "${SCRIPT_DIR}/../../.." && pwd)"
+
+cd "${REPO_ROOT}" || exit 1
+export PYTHONPATH="${REPO_ROOT}:${PYTHONPATH}"
+
 env="mujoco"
 scenario="ManyAgentGoToGoalEnv-v0"
 num_agents=15
@@ -13,7 +19,7 @@ user_name="shahil-shaik7-clemson-university"
 for number in `seq ${running_max}`;
 do
     echo "run ${number}/${running_max}"
-    CUDA_VISIBLE_DEVICES=1 python ../train/train_manygotogoal.py \
+    CUDA_VISIBLE_DEVICES=1 python -m onpolicy.scripts.train.train_manygotogoal \
         --env_name ${env} \
         --algorithm_name ${algo} \
         --experiment_name ${exp} \
