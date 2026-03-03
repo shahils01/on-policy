@@ -8,7 +8,7 @@ export PYTHONPATH="${REPO_ROOT}:${PYTHONPATH}"
 
 env="mujoco"
 scenario="ManyAgentGoToGoalEnv-v0"
-num_agents=5
+num_agents=10
 agent_obsk=0
 faulty_node=-1
 eval_faulty_node=-1

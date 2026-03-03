@@ -8,7 +8,7 @@
 
 env="mujoco"
 scenario="ManyAgentGoToGoalEnv-v0"
-num_agents=15
+num_agents=10
 agent_obsk=0
 algo="mappo"
 exp="mlp"
