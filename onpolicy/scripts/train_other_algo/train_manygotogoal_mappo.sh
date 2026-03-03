@@ -1,10 +1,10 @@
 #!/bin/sh
 
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-REPO_ROOT="$(cd "${SCRIPT_DIR}/../../.." && pwd)"
+# SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+# REPO_ROOT="$(cd "${SCRIPT_DIR}/../../.." && pwd)"
 
-cd "${REPO_ROOT}" || exit 1
-export PYTHONPATH="${REPO_ROOT}:${PYTHONPATH}"
+# cd "${REPO_ROOT}" || exit 1
+# export PYTHONPATH="${REPO_ROOT}:${PYTHONPATH}"
 
 env="mujoco"
 scenario="ManyAgentGoToGoalEnv-v0"
@@ -19,7 +19,7 @@ user_name="shahil-shaik7-clemson-university"
 for number in `seq ${running_max}`;
 do
     echo "run ${number}/${running_max}"
-    CUDA_VISIBLE_DEVICES=1 python -m onpolicy.scripts.train.train_manygotogoal \
+    CUDA_VISIBLE_DEVICES=1 python ../train/train_manygotogoal.py \
         --env_name ${env} \
         --algorithm_name ${algo} \
         --experiment_name ${exp} \
@@ -27,8 +27,8 @@ do
         --num_agents ${num_agents} \
         --agent_obsk ${agent_obsk} \
         --seed ${number} \
-        --lr 4e-5 \
-        --critic_lr 4e-5 \
+        --lr 4e-4 \
+        --critic_lr 4e-4 \
         --clip_param 0.2 \
         --n_training_threads 32 \
         --n_rollout_threads 32 \

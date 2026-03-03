@@ -238,7 +238,7 @@ class MujocoRunner(Runner):
                     aver_episode_rewards = float(np.mean(done_episodes_rewards))
                     print("some episodes done, average rewards:", aver_episode_rewards)
                     if self.use_wandb:
-                        wandb.log({"train_episode_rewards/aver_rewards": aver_episode_rewards}, step=total_num_steps)
+                        wandb.log({"average_episode_rewards": aver_episode_rewards}, step=total_num_steps)
                     else:
                         self.writter.add_scalars(
                             "train_episode_rewards",
