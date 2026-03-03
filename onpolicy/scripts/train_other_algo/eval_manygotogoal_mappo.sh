@@ -37,7 +37,7 @@ CUDA_VISIBLE_DEVICES=0 python -m onpolicy.scripts.train.eval_manygotogoal \
     --add_center_xy \
     --use_state_agent \
     --share_policy \
-    --model_dir "CHANGE_ME_MODEL_DIR" \
+    --model_dir "/home/shahils/Desktop/marl_ws/mappo_original/on-policy/onpolicy/scripts/results/mujoco/ManyAgentGoToGoalEnv-v0/mappo/mlp/wandb/run-20260302_162224-ow5h8re7/files" \
     --use_wandb \
     --wandb_name "xxx" \
     --user_name "shahil-shaik7-clemson-university"
