@@ -88,9 +88,6 @@ class Runner(object):
                         device = self.device)
             self.policy.append(po)
 
-        if self.model_dir is not None:
-            self.restore()
-
         self.trainer = []
         self.buffer = []
         for agent_id in range(self.num_agents):
@@ -105,6 +102,9 @@ class Runner(object):
             self.buffer.append(bu)
             self.trainer.append(tr)
             
+        if self.model_dir is not None:
+            self.restore()
+
     def run(self):
         raise NotImplementedError
 
